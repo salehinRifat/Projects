@@ -4,18 +4,27 @@ let btn = document.querySelector('.btn');
 let result = document.getElementById('result');
 let select = document.getElementById('select');
 
-// Printing optput
+// Printing optput by button
+input.addEventListener('keyup', function(event){
+    if(event.keyCode == '13'){
+        output()
+    }
+});
+// Printing optput by keyboard
 btn.addEventListener('click', function(){
+    output();
+});
+//output function
+function output(){
     // Getting value
     var inputValue = parseInt(input.value);
-        // Printing optput
+    // Printing optput
     if(select.value == 'radius'){
         result.innerText = calcRedius(inputValue).toFixed(3)
     }else{
         result.innerText = calcDiameter(inputValue).toFixed(3)
     }
-})
-
+}
 // Radius Claculator Function
 function calcRedius(value){
     let pi = Math.PI;
@@ -29,3 +38,4 @@ function calcDiameter(value){
     let area = pi * ( finalvalue ** 2);
     return area;
 }
+
